@@ -10,17 +10,21 @@
 <script>
 export default {
   name: "AddTodo",
-  data(){
-      return{
-          title:''
-      }
+  data() {
+    return {
+      title: ""
+    };
   },
-  methods:{
-      addTodo(){
-          const newTodo = {
-              id
-          }
-      }
+  methods: {
+    addTodo(e) {
+      e.preventDefault();
+      const newTodo = {
+        title: this.title,
+        completed: false
+      };
+      this.$emit("add-todo", newTodo);
+      this.title = "";
+    }
   }
 };
 </script>
